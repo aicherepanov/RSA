@@ -99,6 +99,19 @@ def generate_keys():
     RSA_keys['private_key'] = private_key
     return RSA_keys
 
+"""
+Генерирует открытый и закрытый ключи
+"""
+def generate_keys(p, q):    
+    n = p * q
+    # Функция Эйлера
+    fi = (p - 1) * (q - 1)
+    # Открытая экспонента
+    e = get_e(fi)
+    d = get_d(fi, e)
+    
+    return e, d
+
 if __name__ == '__main__':
     generate_keys()
     
